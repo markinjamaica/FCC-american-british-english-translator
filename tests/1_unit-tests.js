@@ -34,5 +34,11 @@ suite('Unit Tests', () => {
                 'Can you toss this in the bin for me?'
             );
         });
+        test('parking lot', () => {
+            assert.equal(
+                translator.americanToBritish('The parking lot was full.'),
+                'The car park was full.'
+            );
+        });
     });
 });
