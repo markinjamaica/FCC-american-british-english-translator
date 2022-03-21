@@ -8,7 +8,7 @@ suite('Unit Tests', () => {
     suite('American to British', () => {
         test('favorite', () => {
             assert.equal(
-                translator.americanToBritish('Mangoes are my favorite fruit'),
+                translator.americanToBritish('Mangoes are my favorite fruit.'),
                 'Mangoes are my favourite fruit.'
             );
         });
