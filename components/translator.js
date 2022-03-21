@@ -5,7 +5,6 @@ const britishOnly = require('./british-only.js');
 
 class Translator {
     americanToBritish(string) {
-        // Loop over each word in string
         const dictionaries = [
             americanOnly,
             americanToBritishSpelling,
@@ -14,7 +13,8 @@ class Translator {
 
         for (const dictionary of dictionaries) {
             for (const property in dictionary) {
-                const english = property;
+                // String that needs to be replaced cannot have letters before or after
+                const english = new RegExp(`\\b${property}\\b`, 'gi');
                 const british = dictionary[property];
                 string = string.replace(english, british);
             }
