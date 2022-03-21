@@ -40,5 +40,13 @@ suite('Unit Tests', () => {
                 'The car park was full.'
             );
         });
+        test('Rube Goldberg', () => {
+            assert.equal(
+                translator.americanToBritish(
+                    'Like a high tech Rube Goldberg machine.'
+                ),
+                'Like a high tech Heath Robinson device.'
+            );
+        });
     });
 });
