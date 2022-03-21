@@ -12,5 +12,11 @@ suite('Unit Tests', () => {
                 'Mangoes are my favourite fruit.'
             );
         });
+        test('yogurt', () => {
+            assert.equal(
+                translator.americanToBritish('I ate yogurt for breakfast.'),
+                'I ate yoghurt for breakfast.'
+            );
+        });
     });
 });
