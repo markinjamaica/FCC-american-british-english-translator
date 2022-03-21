@@ -48,5 +48,13 @@ suite('Unit Tests', () => {
                 'Like a high tech Heath Robinson device.'
             );
         });
+        test('play hooky', () => {
+            assert.equal(
+                translator.americanToBritish(
+                    'To play hooky means to skip class or work.'
+                ),
+                'To bunk off means to skip class or work.'
+            );
+        });
     });
 });
