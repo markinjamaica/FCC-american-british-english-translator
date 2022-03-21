@@ -26,5 +26,13 @@ suite('Unit Tests', () => {
                 "We had a party at my friend's flat."
             );
         });
+        test('trashcan', () => {
+            assert.equal(
+                translator.americanToBritish(
+                    'Can you toss this in the trashcan for me?'
+                ),
+                'Can you toss this in the bin for me?'
+            );
+        });
     });
 });
