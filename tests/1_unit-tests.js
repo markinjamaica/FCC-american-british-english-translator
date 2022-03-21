@@ -18,5 +18,13 @@ suite('Unit Tests', () => {
                 'I ate yoghurt for breakfast.'
             );
         });
+        test('condo', () => {
+            assert.equal(
+                translator.americanToBritish(
+                    "We had a party at my friend's condo."
+                ),
+                "We had a party at my friend's flat."
+            );
+        });
     });
 });
