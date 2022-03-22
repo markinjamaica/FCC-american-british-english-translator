@@ -56,5 +56,13 @@ suite('Unit Tests', () => {
                 'To bunk off means to skip class or work.'
             );
         });
+        test('Mr', () => {
+            assert.equal(
+                translator.americanToBritish(
+                    'No Mr. Bond, I expect you to die.'
+                ),
+                'No Mr Bond, I expect you to die.'
+            );
+        });
     });
 });
