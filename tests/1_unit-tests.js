@@ -95,14 +95,12 @@ suite('Unit Tests', () => {
                 'Tylenol takes up to an hour to work.'
             );
         });
-        // test('footie', () => {
-        //     assert.equal(
-        //         translator.britishToAmerican(
-        //             'We watched the footie match for a while.'
-        //         ),
-        //         'We watched the soccer match for a while.'
-        //     );
-        // });
+        test('caramelise', () => {
+            assert.equal(
+                translator.britishToAmerican('First, caramelise the onions.'),
+                'First, caramelize the onions.'
+            );
+        });
         // test('footie', () => {
         //     assert.equal(
         //         translator.britishToAmerican(
