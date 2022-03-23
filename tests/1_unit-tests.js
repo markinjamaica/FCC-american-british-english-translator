@@ -101,14 +101,14 @@ suite('Unit Tests', () => {
                 'First, caramelize the onions.'
             );
         });
-        // test('footie', () => {
-        //     assert.equal(
-        //         translator.britishToAmerican(
-        //             'We watched the footie match for a while.'
-        //         ),
-        //         'We watched the soccer match for a while.'
-        //     );
-        // });
+        test('bank, funfair', () => {
+            assert.equal(
+                translator.britishToAmerican(
+                    'I spent the bank holiday at the funfair.'
+                ),
+                'I spent the public holiday at the carnival.'
+            );
+        });
         // test('footie', () => {
         //     assert.equal(
         //         translator.britishToAmerican(
