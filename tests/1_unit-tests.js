@@ -109,14 +109,14 @@ suite('Unit Tests', () => {
                 'I spent the public holiday at the carnival.'
             );
         });
-        // test('footie', () => {
-        //     assert.equal(
-        //         translator.britishToAmerican(
-        //             'We watched the footie match for a while.'
-        //         ),
-        //         'We watched the soccer match for a while.'
-        //     );
-        // });
+        test('bicky, chippy', () => {
+            assert.equal(
+                translator.britishToAmerican(
+                    'I had a bicky then went to the chippy.'
+                ),
+                'I had a cookie then went to the fish-and-chip shop.'
+            );
+        });
         // test('footie', () => {
         //     assert.equal(
         //         translator.britishToAmerican(
