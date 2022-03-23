@@ -13,6 +13,8 @@ class Translator {
 
         for (const dictionary of dictionaries) {
             for (const property in dictionary) {
+                const timeRegex = /(?<=\d{1,2}):(?=\d{2})/g;
+
                 const british = dictionary[property];
                 const britishCap = british[0].toUpperCase() + british.slice(1);
 
@@ -26,9 +28,14 @@ class Translator {
                     englishCap = new RegExp(`\\b${property}(?!\S)`, 'ig');
                 }
 
+                // Replace english words & phrases with british
                 string = string.replace(english, british);
                 // Check for capitalized letter
                 string = string.replace(englishCap, britishCap);
+                // Check for time
+                if (timeRegex.test(string)) {
+                    string = string.replace(string.match(timeRegex)[0], '.');
+                }
             }
         }
         return string;
@@ -36,8 +43,6 @@ class Translator {
 }
 
 // const translator = new Translator();
-// const result = translator.americanToBritish(
-//     'No Mr. Bond, I expect you to die.'
-// );
+// const result = translator.americanToBritish('Lunch is at 12:15 today.');
 // console.log(result);
 module.exports = Translator;
