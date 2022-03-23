@@ -76,89 +76,16 @@ suite('Unit Tests', () => {
                 'Lunch is at 12.15 today.'
             );
         });
-        // test('Dr.', () => {
-        //     assert.equal(
-        //         translator.americanToBritish('Dr. Grosh will see you now.'),
-        //         'Dr Grosh will see you now.'
-        //     );
-        // });
-        // test('Dr.', () => {
-        //     assert.equal(
-        //         translator.americanToBritish('Dr. Grosh will see you now.'),
-        //         'Dr Grosh will see you now.'
-        //     );
-        // });
-        // test('Dr.', () => {
-        //     assert.equal(
-        //         translator.americanToBritish('Dr. Grosh will see you now.'),
-        //         'Dr Grosh will see you now.'
-        //     );
-        // });
-        // test('Dr.', () => {
-        //     assert.equal(
-        //         translator.americanToBritish('Dr. Grosh will see you now.'),
-        //         'Dr Grosh will see you now.'
-        //     );
-        // });
-        // test('Dr.', () => {
-        //     assert.equal(
-        //         translator.americanToBritish('Dr. Grosh will see you now.'),
-        //         'Dr Grosh will see you now.'
-        //     );
-        // });
-        // test('Dr.', () => {
-        //     assert.equal(
-        //         translator.americanToBritish('Dr. Grosh will see you now.'),
-        //         'Dr Grosh will see you now.'
-        //     );
-        // });
-        // test('Dr.', () => {
-        //     assert.equal(
-        //         translator.americanToBritish('Dr. Grosh will see you now.'),
-        //         'Dr Grosh will see you now.'
-        //     );
-        // });
-        // test('Dr.', () => {
-        //     assert.equal(
-        //         translator.americanToBritish('Dr. Grosh will see you now.'),
-        //         'Dr Grosh will see you now.'
-        //     );
-        // });
-        // test('Dr.', () => {
-        //     assert.equal(
-        //         translator.americanToBritish('Dr. Grosh will see you now.'),
-        //         'Dr Grosh will see you now.'
-        //     );
-        // });
-        // test('Dr.', () => {
-        //     assert.equal(
-        //         translator.americanToBritish('Dr. Grosh will see you now.'),
-        //         'Dr Grosh will see you now.'
-        //     );
-        // });
-        // test('Dr.', () => {
-        //     assert.equal(
-        //         translator.americanToBritish('Dr. Grosh will see you now.'),
-        //         'Dr Grosh will see you now.'
-        //     );
-        // });
-        // test('Dr.', () => {
-        //     assert.equal(
-        //         translator.americanToBritish('Dr. Grosh will see you now.'),
-        //         'Dr Grosh will see you now.'
-        //     );
-        // });
-        // test('Dr.', () => {
-        //     assert.equal(
-        //         translator.americanToBritish('Dr. Grosh will see you now.'),
-        //         'Dr Grosh will see you now.'
-        //     );
-        // });
-        // test('Dr.', () => {
-        //     assert.equal(
-        //         translator.americanToBritish('Dr. Grosh will see you now.'),
-        //         'Dr Grosh will see you now.'
-        //     );
-        // });
+    });
+
+    suite('British to American', () => {
+        test('footie', () => {
+            assert.equal(
+                translator.britishToAmerican(
+                    'We watched the footie match for a while.'
+                ),
+                'We watched the soccer match for a while.'
+            );
+        });
     });
 });
