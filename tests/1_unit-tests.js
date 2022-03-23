@@ -87,5 +87,85 @@ suite('Unit Tests', () => {
                 'We watched the soccer match for a while.'
             );
         });
+        test('Paracetamol', () => {
+            assert.equal(
+                translator.britishToAmerican(
+                    'Paracetamol takes up to an hour to work.'
+                ),
+                'Tylenol takes up to an hour to work.'
+            );
+        });
+        // test('footie', () => {
+        //     assert.equal(
+        //         translator.britishToAmerican(
+        //             'We watched the footie match for a while.'
+        //         ),
+        //         'We watched the soccer match for a while.'
+        //     );
+        // });
+        // test('footie', () => {
+        //     assert.equal(
+        //         translator.britishToAmerican(
+        //             'We watched the footie match for a while.'
+        //         ),
+        //         'We watched the soccer match for a while.'
+        //     );
+        // });
+        // test('footie', () => {
+        //     assert.equal(
+        //         translator.britishToAmerican(
+        //             'We watched the footie match for a while.'
+        //         ),
+        //         'We watched the soccer match for a while.'
+        //     );
+        // });
+        // test('footie', () => {
+        //     assert.equal(
+        //         translator.britishToAmerican(
+        //             'We watched the footie match for a while.'
+        //         ),
+        //         'We watched the soccer match for a while.'
+        //     );
+        // });
+        // test('footie', () => {
+        //     assert.equal(
+        //         translator.britishToAmerican(
+        //             'We watched the footie match for a while.'
+        //         ),
+        //         'We watched the soccer match for a while.'
+        //     );
+        // });
+        // test('footie', () => {
+        //     assert.equal(
+        //         translator.britishToAmerican(
+        //             'We watched the footie match for a while.'
+        //         ),
+        //         'We watched the soccer match for a while.'
+        //     );
+        // });
+        // test('footie', () => {
+        //     assert.equal(
+        //         translator.britishToAmerican(
+        //             'We watched the footie match for a while.'
+        //         ),
+        //         'We watched the soccer match for a while.'
+        //     );
+        // });
+        // test('footie', () => {
+        //     assert.equal(
+        //         translator.britishToAmerican(
+        //             'We watched the footie match for a while.'
+        //         ),
+        //         'We watched the soccer match for a while.'
+        //     );
+        // });
+        // test('footie', () => {
+        //     assert.equal(
+        //         translator.britishToAmerican(
+        //             'We watched the footie match for a while.'
+        //         ),
+        //         'We watched the soccer match for a while.'
+        //     );
+        // });
     });
 });
