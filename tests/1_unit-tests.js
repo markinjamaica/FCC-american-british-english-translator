@@ -64,5 +64,11 @@ suite('Unit Tests', () => {
                 'No Mr Bond, I expect you to die.'
             );
         });
+        test('Dr.', () => {
+            assert.equal(
+                translator.americanToBritish('Dr. Grosh will see you now.'),
+                'Dr Grosh will see you now.'
+            );
+        });
     });
 });
