@@ -125,14 +125,14 @@ suite('Unit Tests', () => {
                 "I've just got odds and ends in my fanny pack."
             );
         });
-        // test('footie', () => {
-        //     assert.equal(
-        //         translator.britishToAmerican(
-        //             'We watched the footie match for a while.'
-        //         ),
-        //         'We watched the soccer match for a while.'
-        //     );
-        // });
+        test('car boot sale', () => {
+            assert.equal(
+                translator.britishToAmerican(
+                    'The car boot sale at Boxted Airfield was called off.'
+                ),
+                'The swap meet at Boxted Airfield was called off.'
+            );
+        });
         // test('footie', () => {
         //     assert.equal(
         //         translator.britishToAmerican(
