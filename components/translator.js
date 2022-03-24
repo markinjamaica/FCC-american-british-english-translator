@@ -48,74 +48,97 @@ class Translator {
             americanToBritishTitles,
         ];
 
+        // Time Regex
+        const timeRegex = /(?<=\d{1,2}).(?=\d{2})/g;
+
+        let changedWords = [];
+
         for (const dictionary of dictionaries) {
             for (const property in dictionary) {
-                const timeRegex = /(?<=\d{1,2}).(?=\d{2})/g;
+                // Dictionary Regex
+                const britishOnlyRegex = new RegExp(`\\b${property}\\b`, 'g');
+                const britishOnlyCapitalizedRegex = new RegExp(
+                    `\\b${property}\\b`,
+                    'ig'
+                );
+                const britishTitleRegex = new RegExp(
+                    `\\b${dictionary[property]}(?!\S)`,
+                    'g'
+                );
+                const britishTitleCapitalizedRegex = new RegExp(
+                    `\\b${dictionary[property]}(?!\S)`,
+                    'ig'
+                );
+                const britishSpellingRegex = new RegExp(
+                    `\\b${dictionary[property]}\\b`,
+                    'g'
+                );
+                const britishSpellingCapitalizedRegex = new RegExp(
+                    `\\b${dictionary[property]}\\b`,
+                    'ig'
+                );
 
-                // if britishOnly dictionary, british is property, and english is property value
+                // Use originalString to look for any changes to string
+                const originalString = string;
+
+                let british = null;
+                let english = null;
+
+                // If array contains word already changed that matches regex of new word to be changed, skip
+
                 if (dictionary === britishOnly) {
-                    const english = dictionary[property];
+                    english = dictionary[property];
                     const englishCap =
                         english[0].toUpperCase() + english.slice(1);
 
-                    // String that needs to be replaced cannot have letters before or after
-                    let british = new RegExp(`\\b${property}\\b`, 'g');
-                    let britishCap = new RegExp(`\\b${property}\\b`, 'ig');
-
-                    // Replace english words & phrases with british
-                    string = string.replace(british, english);
-                    // Check for capitalized letter
-                    string = string.replace(britishCap, englishCap);
-
-                    // British is property value, and English is property
+                    if (britishOnlyRegex.test(string)) {
+                        british = britishOnlyRegex;
+                    } else {
+                        british = britishOnlyCapitalizedRegex;
+                        english = englishCap;
+                    }
                 } else {
-                    const english = property;
+                    english = property;
                     const englishCap =
                         english[0].toUpperCase() + english.slice(1);
 
-                    // String that needs to be replaced cannot have letters before or after
-                    let british = new RegExp(
-                        `\\b${dictionary[property]}\\b`,
-                        'g'
-                    );
-                    let britishCap = new RegExp(
-                        `\\b${dictionary[property]}\\b`,
-                        'ig'
-                    );
-
-                    // If dictionary is titles, ok to end in a period
                     if (dictionary === americanToBritishTitles) {
-                        british = new RegExp(
-                            `\\b${dictionary[property]}(?!\S)`,
-                            'g'
-                        );
-                        britishCap = new RegExp(
-                            `\\b${dictionary[property]}(?!\S)`,
-                            'ig'
-                        );
+                        if (britishTitleRegex.test(string)) {
+                            british = britishTitleRegex;
+                        } else {
+                            british = britishTitleCapitalizedRegex;
+                            english = englishCap;
+                        }
+                    } else {
+                        if (britishSpellingRegex.test(string)) {
+                            british = britishSpellingRegex;
+                        } else {
+                            british = britishSpellingCapitalizedRegex;
+                            english = englishCap;
+                        }
                     }
+                }
+                // Check for time
+                if (timeRegex.test(string)) {
+                    string = string.replace(string.match(timeRegex)[0], ':');
+                }
 
-                    // Replace english words & phrases with british
-                    string = string.replace(british, english);
-                    // Check for capitalized letter
-                    string = string.replace(britishCap, englishCap);
-                    // Check for time
-                    if (timeRegex.test(string)) {
-                        string = string.replace(
-                            string.match(timeRegex)[0],
-                            ':'
-                        );
-                    }
+                // Replace english words & phrases with british
+                string = string.replace(british, english);
+
+                if (originalString !== string) {
+                    changedWords.push(english);
                 }
             }
         }
+        console.log(changedWords);
         return string;
     }
 }
 
-// const translator = new Translator();
-// const result = translator.britishToAmerican(
-//     'We watched the footie match for a while.'
-// );
-// console.log(result);
+const translator = new Translator();
+const result = translator.britishToAmerican(
+    'I had a bicky then went to the chippy.'
+);
+console.log(result);
 module.exports = Translator;
