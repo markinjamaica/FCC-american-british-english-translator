@@ -123,15 +123,18 @@ class Translator {
                     string = string.replace(string.match(timeRegex)[0], ':');
                 }
 
-                // Replace english words & phrases with british
-                string = string.replace(british, english);
+                // Check that previously changed word not being changed again
+                if (!changedWords.includes(english)) {
+                    // Replace english words & phrases with british
+                    string = string.replace(british, english);
+                }
 
                 if (originalString !== string) {
                     changedWords.push(english);
                 }
             }
         }
-        console.log(changedWords);
+        // console.log(changedWords);
         return string;
     }
 }
