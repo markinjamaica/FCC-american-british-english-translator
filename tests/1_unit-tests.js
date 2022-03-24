@@ -117,14 +117,14 @@ suite('Unit Tests', () => {
                 'I had a cookie then went to the fish-and-chip shop.'
             );
         });
-        // test('footie', () => {
-        //     assert.equal(
-        //         translator.britishToAmerican(
-        //             'We watched the footie match for a while.'
-        //         ),
-        //         'We watched the soccer match for a while.'
-        //     );
-        // });
+        test('bit and bobs, bum bag', () => {
+            assert.equal(
+                translator.britishToAmerican(
+                    "I've just got bits and bobs in my bum bag."
+                ),
+                "I've just got odds and ends in my fanny pack."
+            );
+        });
         // test('footie', () => {
         //     assert.equal(
         //         translator.britishToAmerican(
