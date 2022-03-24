@@ -133,14 +133,12 @@ suite('Unit Tests', () => {
                 'The swap meet at Boxted Airfield was called off.'
             );
         });
-        // test('footie', () => {
-        //     assert.equal(
-        //         translator.britishToAmerican(
-        //             'We watched the footie match for a while.'
-        //         ),
-        //         'We watched the soccer match for a while.'
-        //     );
-        // });
+        test('Mrs', () => {
+            assert.equal(
+                translator.britishToAmerican('Have you met Mrs Kalyani?'),
+                'Have you met Mrs. Kalyani?'
+            );
+        });
         // test('footie', () => {
         //     assert.equal(
         //         translator.britishToAmerican(
