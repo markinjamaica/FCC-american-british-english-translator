@@ -171,15 +171,17 @@ suite('Unit Tests', () => {
                 { highlight: ['yoghurt'] }
             );
         });
+        test('footie', () => {
+            assert.deepInclude(
+                translator.britishToAmerican(
+                    'We watched the footie match for a while.'
+                ),
+                { highlight: ['soccer'] }
+            );
+        });
         // test('favorite', () => {
         //     assert.deepInclude(
-        //         translator.americanToBritish('Mangoes are my favorite fruit.'),
-        //         { highlight: ['favourite'] }
-        //     );
-        // });
-        // test('favorite', () => {
-        //     assert.deepInclude(
-        //         translator.americanToBritish('Mangoes are my favorite fruit.'),
+        //         translator.britishToAmerican('Mangoes are my favorite fruit.'),
         //         { highlight: ['favourite'] }
         //     );
         // });
