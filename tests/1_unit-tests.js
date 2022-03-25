@@ -165,12 +165,12 @@ suite('Unit Tests', () => {
                 { highlight: ['favourite'] }
             );
         });
-        // test('favorite', () => {
-        //     assert.deepInclude(
-        //         translator.americanToBritish('Mangoes are my favorite fruit.'),
-        //         { highlight: ['favourite'] }
-        //     );
-        // });
+        test('yogurt', () => {
+            assert.deepInclude(
+                translator.americanToBritish('I ate yogurt for breakfast'),
+                { highlight: ['yoghurt'] }
+            );
+        });
         // test('favorite', () => {
         //     assert.deepInclude(
         //         translator.americanToBritish('Mangoes are my favorite fruit.'),
