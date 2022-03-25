@@ -37,4 +37,16 @@ suite('Functional Tests', () => {
                 done();
             });
     });
+    test('Translation with missing text field', (done) => {
+        chai.request(server)
+            .post('/api/translate')
+            .send({
+                locale: 'american-to-british',
+            })
+            .end((err, res) => {
+                assert.equal(res.status, 200);
+                assert.equal(res.body.error, 'Required field(s) missing');
+                done();
+            });
+    });
 });
