@@ -7,161 +7,160 @@ const translator = new Translator();
 suite('Unit Tests', () => {
     suite('American to British', () => {
         test('favorite', () => {
-            assert.equal(
+            assert.include(
                 translator.americanToBritish('Mangoes are my favorite fruit.'),
-                'Mangoes are my favourite fruit.'
+                { string: 'Mangoes are my favourite fruit.' }
             );
         });
         test('yogurt', () => {
-            assert.equal(
+            assert.include(
                 translator.americanToBritish('I ate yogurt for breakfast.'),
-                'I ate yoghurt for breakfast.'
+                { string: 'I ate yoghurt for breakfast.' }
             );
         });
         test('condo', () => {
-            assert.equal(
+            assert.include(
                 translator.americanToBritish(
                     "We had a party at my friend's condo."
                 ),
-                "We had a party at my friend's flat."
+                { string: "We had a party at my friend's flat." }
             );
         });
         test('trashcan', () => {
-            assert.equal(
+            assert.include(
                 translator.americanToBritish(
                     'Can you toss this in the trashcan for me?'
                 ),
-                'Can you toss this in the bin for me?'
+                { string: 'Can you toss this in the bin for me?' }
             );
         });
         test('parking lot', () => {
-            assert.equal(
+            assert.include(
                 translator.americanToBritish('The parking lot was full.'),
-                'The car park was full.'
+                { string: 'The car park was full.' }
             );
         });
         test('Rube Goldberg', () => {
-            assert.equal(
+            assert.include(
                 translator.americanToBritish(
                     'Like a high tech Rube Goldberg machine.'
                 ),
-                'Like a high tech Heath Robinson device.'
+                { string: 'Like a high tech Heath Robinson device.' }
             );
         });
         test('play hooky', () => {
-            assert.equal(
+            assert.include(
                 translator.americanToBritish(
                     'To play hooky means to skip class or work.'
                 ),
-                'To bunk off means to skip class or work.'
+                { string: 'To bunk off means to skip class or work.' }
             );
         });
         test('Mr', () => {
-            assert.equal(
+            assert.include(
                 translator.americanToBritish(
                     'No Mr. Bond, I expect you to die.'
                 ),
-                'No Mr Bond, I expect you to die.'
+                { string: 'No Mr Bond, I expect you to die.' }
             );
         });
         test('Dr.', () => {
-            assert.equal(
+            assert.include(
                 translator.americanToBritish('Dr. Grosh will see you now.'),
-                'Dr Grosh will see you now.'
+                { string: 'Dr Grosh will see you now.' }
             );
         });
         test('12:15', () => {
-            assert.equal(
+            assert.include(
                 translator.americanToBritish('Lunch is at 12:15 today.'),
-                'Lunch is at 12.15 today.'
+                { string: 'Lunch is at 12.15 today.' }
             );
         });
     });
 
     suite('British to American', () => {
         test('footie', () => {
-            assert.equal(
+            assert.include(
                 translator.britishToAmerican(
                     'We watched the footie match for a while.'
                 ),
-                'We watched the soccer match for a while.'
+                { string: 'We watched the soccer match for a while.' }
             );
         });
         test('Paracetamol', () => {
-            assert.equal(
+            assert.include(
                 translator.britishToAmerican(
                     'Paracetamol takes up to an hour to work.'
                 ),
-                'Tylenol takes up to an hour to work.'
+                { string: 'Tylenol takes up to an hour to work.' }
             );
         });
         test('caramelise', () => {
-            assert.equal(
+            assert.include(
                 translator.britishToAmerican('First, caramelise the onions.'),
-                'First, caramelize the onions.'
+                { string: 'First, caramelize the onions.' }
             );
         });
         test('bank, funfair', () => {
-            assert.equal(
+            assert.include(
                 translator.britishToAmerican(
                     'I spent the bank holiday at the funfair.'
                 ),
-                'I spent the public holiday at the carnival.'
+                { string: 'I spent the public holiday at the carnival.' }
             );
         });
         test('bicky, chippy', () => {
-            assert.equal(
+            assert.include(
                 translator.britishToAmerican(
                     'I had a bicky then went to the chippy.'
                 ),
-                'I had a cookie then went to the fish-and-chip shop.'
+                {
+                    string: 'I had a cookie then went to the fish-and-chip shop.',
+                }
             );
         });
         test('bit and bobs, bum bag', () => {
-            assert.equal(
+            assert.include(
                 translator.britishToAmerican(
                     "I've just got bits and bobs in my bum bag."
                 ),
-                "I've just got odds and ends in my fanny pack."
+                { string: "I've just got odds and ends in my fanny pack." }
             );
         });
         test('car boot sale', () => {
-            assert.equal(
+            assert.include(
                 translator.britishToAmerican(
                     'The car boot sale at Boxted Airfield was called off.'
                 ),
-                'The swap meet at Boxted Airfield was called off.'
+                { string: 'The swap meet at Boxted Airfield was called off.' }
             );
         });
         test('Mrs', () => {
-            assert.equal(
+            assert.include(
                 translator.britishToAmerican('Have you met Mrs Kalyani?'),
-                'Have you met Mrs. Kalyani?'
+                { string: 'Have you met Mrs. Kalyani?' }
             );
         });
         test('Prof', () => {
-            assert.equal(
+            assert.include(
                 translator.britishToAmerican(
                     "Prof Joyner of King's College, London."
                 ),
-                "Prof. Joyner of King's College, London."
+                { string: "Prof. Joyner of King's College, London." }
             );
         });
         test('4.30', () => {
-            assert.equal(
+            assert.include(
                 translator.britishToAmerican(
                     'Tea time is usually around 4 or 4.30.'
                 ),
-                'Tea time is usually around 4 or 4:30.'
+                { string: 'Tea time is usually around 4 or 4:30.' }
             );
         });
-        // test('footie', () => {
-        //     assert.equal(
-        //         translator.britishToAmerican(
-        //             'We watched the footie match for a while.'
-        //         ),
-        //         'We watched the soccer match for a while.'
-        //     );
-        // });
     });
+    // suite('Highlight Translation', () => {
+    //     test('favorite', () => {
+
+    //     })
+    // })
 });
