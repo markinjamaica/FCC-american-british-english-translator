@@ -179,11 +179,13 @@ suite('Unit Tests', () => {
                 { highlight: ['soccer'] }
             );
         });
-        // test('favorite', () => {
-        //     assert.deepInclude(
-        //         translator.britishToAmerican('Mangoes are my favorite fruit.'),
-        //         { highlight: ['favourite'] }
-        //     );
-        // });
+        test('Paracetamol', () => {
+            assert.deepInclude(
+                translator.britishToAmerican(
+                    'Paracetamol takes up to an hour to work.'
+                ),
+                { highlight: ['Tylenol'] }
+            );
+        });
     });
 });
