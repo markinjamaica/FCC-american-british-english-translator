@@ -49,4 +49,16 @@ suite('Functional Tests', () => {
                 done();
             });
     });
+    test('Translation with missing locale field', (done) => {
+        chai.request(server)
+            .post('/api/translate')
+            .send({
+                text: 'You are a fat cat.',
+            })
+            .end((err, res) => {
+                assert.equal(res.status, 200);
+                assert.equal(res.body.error, 'Required field(s) missing');
+                done();
+            });
+    });
 });
