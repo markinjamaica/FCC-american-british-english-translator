@@ -6,10 +6,12 @@ module.exports = function (app) {
     const translator = new Translator();
 
     app.route('/api/translate').post((req, res) => {
+        if (!req.body.text || !req.body.locale) {
+            return res.json({ error: 'Required field(s) missing' });
+        }
         const text = req.body.text;
         const locale = req.body.locale;
 
-        let error = false;
         let translationObj;
 
         if (locale === 'american-to-british') {
