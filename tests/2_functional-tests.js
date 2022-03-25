@@ -74,4 +74,20 @@ suite('Functional Tests', () => {
                 done();
             });
     });
+    test('Translation with text that needs no translation', (done) => {
+        chai.request(server)
+            .post('/api/translate')
+            .send({
+                text: "I don't need to change anything.",
+                locale: 'american-to-british',
+            })
+            .end((err, res) => {
+                assert.equal(res.status, 200);
+                assert.equal(
+                    res.body.translation,
+                    'Everything looks good to me!'
+                );
+                done();
+            });
+    });
 });
