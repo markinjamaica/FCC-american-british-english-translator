@@ -35,7 +35,7 @@ module.exports = function (app) {
             );
         }
 
-        if (translation === translationObj.string) {
+        if (translation === text) {
             translation = 'Everything looks good to me!';
         }
 
