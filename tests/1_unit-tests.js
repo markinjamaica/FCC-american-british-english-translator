@@ -139,14 +139,14 @@ suite('Unit Tests', () => {
                 'Have you met Mrs. Kalyani?'
             );
         });
-        // test('footie', () => {
-        //     assert.equal(
-        //         translator.britishToAmerican(
-        //             'We watched the footie match for a while.'
-        //         ),
-        //         'We watched the soccer match for a while.'
-        //     );
-        // });
+        test('Prof', () => {
+            assert.equal(
+                translator.britishToAmerican(
+                    "Prof Joyner of King's College, London."
+                ),
+                "Prof. Joyner of King's College, London."
+            );
+        });
         // test('footie', () => {
         //     assert.equal(
         //         translator.britishToAmerican(
