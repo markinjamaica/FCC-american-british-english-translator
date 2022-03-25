@@ -143,12 +143,11 @@ class Translator {
                 }
             }
         }
-        // console.log(changedWords);
         return { string: string, highlight: changedWords };
     }
 }
 
-const translator = new Translator();
-const result = translator.americanToBritish('Mangoes are my favorite fruit.');
-console.log(result);
+// const translator = new Translator();
+// const result = translator.americanToBritish('Mangoes are my favorite fruit.');
+// console.log(result);
 module.exports = Translator;
