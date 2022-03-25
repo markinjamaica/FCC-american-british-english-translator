@@ -12,9 +12,17 @@ class Translator {
         ];
 
         // Time Regex
-        const timeRegex = /(?<=\d{1,2}):(?=\d{2})/g;
+        const timeRegex = /\d{1,2}:\d{2}/g;
 
         let changedWords = [];
+
+        // Check for time
+        if (timeRegex.test(string)) {
+            let americanTime = string.match(timeRegex)[0];
+            let britishTime = americanTime.split(':').join('.');
+            string = string.replace(americanTime, britishTime);
+            changedWords.push(britishTime);
+        }
 
         for (const dictionary of dictionaries) {
             for (const property in dictionary) {
@@ -38,10 +46,7 @@ class Translator {
                 string = string.replace(english, british);
                 // Check for capitalized letter
                 string = string.replace(englishCap, britishCap);
-                // Check for time
-                if (timeRegex.test(string)) {
-                    string = string.replace(string.match(timeRegex)[0], '.');
-                }
+
                 if (originalString !== string) {
                     changedWords.push(british);
                 }
@@ -58,9 +63,17 @@ class Translator {
         ];
 
         // Time Regex
-        const timeRegex = /(?<=\d{1,2}).(?=\d{2})/g;
+        const timeRegex = /\d{1,2}.\d{2}/g;
 
         let changedWords = [];
+
+        // Check for time
+        if (timeRegex.test(string)) {
+            let britishTime = string.match(timeRegex)[0];
+            let americanTime = britishTime.split('.').join(':');
+            string = string.replace(britishTime, americanTime);
+            changedWords.push(americanTime);
+        }
 
         for (const dictionary of dictionaries) {
             for (const property in dictionary) {
@@ -127,10 +140,6 @@ class Translator {
                         }
                     }
                 }
-                // Check for time
-                if (timeRegex.test(string)) {
-                    string = string.replace(string.match(timeRegex)[0], ':');
-                }
 
                 // Check that previously changed word not being changed again
                 if (!changedWords.includes(english)) {
@@ -148,6 +157,6 @@ class Translator {
 }
 
 // const translator = new Translator();
-// const result = translator.americanToBritish('Mangoes are my favorite fruit.');
+// const result = translator.americanToBritish('It is now 10:15');
 // console.log(result);
 module.exports = Translator;
