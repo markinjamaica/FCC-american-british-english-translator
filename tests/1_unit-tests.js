@@ -147,14 +147,14 @@ suite('Unit Tests', () => {
                 "Prof. Joyner of King's College, London."
             );
         });
-        // test('footie', () => {
-        //     assert.equal(
-        //         translator.britishToAmerican(
-        //             'We watched the footie match for a while.'
-        //         ),
-        //         'We watched the soccer match for a while.'
-        //     );
-        // });
+        test('4.30', () => {
+            assert.equal(
+                translator.britishToAmerican(
+                    'Tea time is usually around 4 or 4.30.'
+                ),
+                'Tea time is usually around 4 or 4:30.'
+            );
+        });
         // test('footie', () => {
         //     assert.equal(
         //         translator.britishToAmerican(
