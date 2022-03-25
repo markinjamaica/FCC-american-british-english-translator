@@ -11,12 +11,18 @@ class Translator {
             americanToBritishTitles,
         ];
 
+        // Time Regex
+        const timeRegex = /(?<=\d{1,2}):(?=\d{2})/g;
+
+        let changedWords = [];
+
         for (const dictionary of dictionaries) {
             for (const property in dictionary) {
-                const timeRegex = /(?<=\d{1,2}):(?=\d{2})/g;
-
                 const british = dictionary[property];
                 const britishCap = british[0].toUpperCase() + british.slice(1);
+
+                // Use originalString to look for any changes to string
+                const originalString = string;
 
                 // String that needs to be replaced cannot have letters before or after
                 let english = new RegExp(`\\b${property}\\b`, 'g');
@@ -36,9 +42,12 @@ class Translator {
                 if (timeRegex.test(string)) {
                     string = string.replace(string.match(timeRegex)[0], '.');
                 }
+                if (originalString !== string) {
+                    changedWords.push(english);
+                }
             }
         }
-        return string;
+        return { string: string, highlight: changedWords };
     }
 
     britishToAmerican(string) {
@@ -135,13 +144,13 @@ class Translator {
             }
         }
         // console.log(changedWords);
-        return string;
+        return { string: string, highlight: changedWords };
     }
 }
 
-const translator = new Translator();
-const result = translator.britishToAmerican(
-    'I had a bicky then went to the chippy.'
-);
-console.log(result);
+// const translator = new Translator();
+// const result = translator.britishToAmerican(
+//     'I had a bicky then went to the chippy.'
+// );
+// console.log(result);
 module.exports = Translator;
