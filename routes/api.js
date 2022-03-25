@@ -35,6 +35,10 @@ module.exports = function (app) {
             );
         }
 
+        if (translation === translationObj.string) {
+            translation = 'Everything looks good to me!';
+        }
+
         res.json({ translation: translation });
     });
 };
