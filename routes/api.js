@@ -9,12 +9,15 @@ module.exports = function (app) {
         const text = req.body.text;
         const locale = req.body.locale;
 
+        let error = false;
         let translationObj;
 
         if (locale === 'american-to-british') {
             translationObj = translator.americanToBritish(text);
-        } else {
+        } else if (locale === 'british-to-american') {
             translationObj = translator.britishToAmerican(text);
+        } else {
+            return res.json({ error: 'Invalid value for locale field' });
         }
 
         let translation = translationObj.string;
