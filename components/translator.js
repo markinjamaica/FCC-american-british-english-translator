@@ -43,7 +43,7 @@ class Translator {
                     string = string.replace(string.match(timeRegex)[0], '.');
                 }
                 if (originalString !== string) {
-                    changedWords.push(english);
+                    changedWords.push(british);
                 }
             }
         }
@@ -148,9 +148,7 @@ class Translator {
     }
 }
 
-// const translator = new Translator();
-// const result = translator.britishToAmerican(
-//     'I had a bicky then went to the chippy.'
-// );
-// console.log(result);
+const translator = new Translator();
+const result = translator.americanToBritish('Mangoes are my favorite fruit.');
+console.log(result);
 module.exports = Translator;
