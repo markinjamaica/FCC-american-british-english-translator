@@ -158,9 +158,30 @@ suite('Unit Tests', () => {
             );
         });
     });
-    // suite('Highlight Translation', () => {
-    //     test('favorite', () => {
-
-    //     })
-    // })
+    suite('Highlight Translation', () => {
+        test('favorite', () => {
+            assert.deepInclude(
+                translator.americanToBritish('Mangoes are my favorite fruit.'),
+                { highlight: ['favourite'] }
+            );
+        });
+        // test('favorite', () => {
+        //     assert.deepInclude(
+        //         translator.americanToBritish('Mangoes are my favorite fruit.'),
+        //         { highlight: ['favourite'] }
+        //     );
+        // });
+        // test('favorite', () => {
+        //     assert.deepInclude(
+        //         translator.americanToBritish('Mangoes are my favorite fruit.'),
+        //         { highlight: ['favourite'] }
+        //     );
+        // });
+        // test('favorite', () => {
+        //     assert.deepInclude(
+        //         translator.americanToBritish('Mangoes are my favorite fruit.'),
+        //         { highlight: ['favourite'] }
+        //     );
+        // });
+    });
 });
