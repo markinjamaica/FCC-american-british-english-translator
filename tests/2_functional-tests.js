@@ -24,4 +24,17 @@ suite('Functional Tests', () => {
                 done();
             });
     });
+    test('Translation with text and invalid locale field', (done) => {
+        chai.request(server)
+            .post('/api/translate')
+            .send({
+                text: 'Fat cats wear hats.',
+                locale: 'english-to-finnish',
+            })
+            .end((err, res) => {
+                assert.equal(res.status, 200);
+                assert.equal(res.body.error, 'Invalid value for locale field');
+                done();
+            });
+    });
 });
