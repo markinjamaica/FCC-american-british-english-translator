@@ -39,6 +39,6 @@ module.exports = function (app) {
             translation = 'Everything looks good to me!';
         }
 
-        res.json({ translation: translation });
+        res.json({ text: text, translation: translation });
     });
 };
