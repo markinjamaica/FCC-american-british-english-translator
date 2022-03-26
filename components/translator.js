@@ -26,8 +26,8 @@ class Translator {
 
         for (const dictionary of dictionaries) {
             for (const property in dictionary) {
-                const british = dictionary[property];
-                const britishCap = british[0].toUpperCase() + british.slice(1);
+                let british = dictionary[property];
+                let britishCap = british[0].toUpperCase() + british.slice(1);
 
                 // Use originalString to look for any changes to string
                 const originalString = string;
@@ -42,10 +42,13 @@ class Translator {
                     englishCap = new RegExp(`\\b${property}(?!\S)`, 'ig');
                 }
 
+                // Test if not lowercase
+                if (!english.test(string)) {
+                    english = englishCap;
+                    british = britishCap;
+                }
                 // Replace english words & phrases with british
                 string = string.replace(english, british);
-                // Check for capitalized letter
-                string = string.replace(englishCap, britishCap);
 
                 if (originalString !== string) {
                     changedWords.push(british);
@@ -156,7 +159,7 @@ class Translator {
     }
 }
 
-// const translator = new Translator();
-// const result = translator.americanToBritish('It is now 10:15');
-// console.log(result);
+const translator = new Translator();
+const result = translator.britishToAmerican('Mr');
+console.log(result);
 module.exports = Translator;
